@@ -1,0 +1,179 @@
+{
+  "name": "Fadi Kelada",
+  "tagline": "PhD Candidate | Control & Stability of Power Systems",
+  "about": "Specialized in the stability and control of power systems, with a focus on renewables. Eager to leverage my expertise to improve grid resilience and facilitate the energy transition.",
+  "experience": [
+    {
+      "title": "R&D Engineer (internship)",
+      "organisation": "Supergrid Institute",
+      "start": "2021-03",
+      "end": "2021-08",
+      "location": "Lyon, France",
+      "details": "Developing power-system electromagnetic transient (EMT) models and simulations in OpenModelica for reference grids incorporating HVDC and hybrid AC-DC networks."
+    },
+    {
+      "title": "Intern on Energy Management",
+      "organisation": "Schneider Electric",
+      "start": "2020-02",
+      "end": "2020-08",
+      "location": "Cairo, Egypt",
+      "details": "Graduation project internship: led my team to develop new energy management solutions for air-conditioning systems. The project won first prize."
+    }
+  ],
+  "education": [
+    {
+      "title": "Ph.D. in Electrical Engineering",
+      "organisation": "University of Grenoble Alpes, Grenoble Electrical Engineering Lab (G2ELab)",
+      "start": "2021-10",
+      "end": "present",
+      "location": "Grenoble, France",
+      "details": "Keywords: stability, converter control, microgrids, low inertia, EMT modeling and simulation."
+    },
+    {
+      "title": "M.Sc. in Electrical Engineering",
+      "organisation": "Grenoble INP, University of Grenoble Alpes",
+      "start": "2020-09",
+      "end": "2021-09",
+      "location": "Grenoble, France",
+      "details": "Valedictorian. Grade: 16.48/20."
+    },
+    {
+      "title": "B.Sc. in Energy & Renewable Energy Engineering",
+      "organisation": "Ain Shams University",
+      "start": "2015-09",
+      "end": "2020-08",
+      "location": "Cairo, Egypt",
+      "details": "Valedictorian. GPA: 4.0/4.0."
+    }
+  ],
+  "highlights": [
+    {
+      "value": "2",
+      "label": "Journal articles"
+    },
+    {
+      "value": "3",
+      "label": "Conference articles"
+    },
+    {
+      "value": "1",
+      "label": "Open-access tool on GitHub"
+    },
+    {
+      "value": "6",
+      "label": "Poster presentations"
+    },
+    {
+      "value": "2",
+      "label": "Interns supervised"
+    },
+    {
+      "value": "12",
+      "label": "Months of volunteering with IEEE R8 SYP"
+    },
+    {
+      "value": "100+",
+      "label": "Teaching hours"
+    }
+  ],
+  "achievements": [
+    {
+      "title": "IEEE SYP R8 Congress Secretary",
+      "details": "Co-chaired the IEEE R8 SYP congress held in Grenoble in 2024."
+    },
+    {
+      "title": "Best Energy Management Solution",
+      "details": "Led my graduation project team to win first prize in Schneider Electric's undergraduate projects competition."
+    },
+    {
+      "title": "Scholarship Holder",
+      "details": "Ranked first in my Bachelor's class; received a fully funded French government scholarship for my Master's and PhD."
+    }
+  ],
+  "skills": [
+    {
+      "group": "Simulation",
+      "items": [
+        "MATLAB",
+        "Simulink",
+        "OpenModelica",
+        "Hypersim",
+        "EMTP-RV",
+        "DIgSILENT",
+        "HOMER"
+      ]
+    },
+    {
+      "group": "Programming",
+      "items": [
+        "Python",
+        "C/C++",
+        "Modelica",
+        "Machine Learning & Optimization Toolbox"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "name": "Arabic",
+      "level": 5
+    },
+    {
+      "name": "English",
+      "level": 4.5
+    },
+    {
+      "name": "French",
+      "level": 4.5
+    },
+    {
+      "name": "German",
+      "level": 1
+    }
+  ],
+  "publications": [
+    {
+      "type": "article",
+      "title": "Revisiting Small-Signal Modeling for Analyzing Fast Dynamic Interactions in Converter-Dominated Power Systems",
+      "authors": "Fadi Kelada, Jérôme Buire, Nouredine Hadjsaid",
+      "venue": "IEEE Transactions on Power Systems",
+      "year": 2024,
+      "status": "pending publication"
+    },
+    {
+      "type": "article",
+      "title": "Tuning Grid-forming Converters for Optimal Allocation of Virtual Inertia and Damping in Low Inertia Power Systems",
+      "authors": "Fadi Kelada, Jérôme Buire, Nouredine Hadjsaid",
+      "venue": "IEEE Access",
+      "year": 2024,
+      "status": "pending submission"
+    },
+    {
+      "type": "conference",
+      "title": "Comparative Study of Decentralized Grid-forming Converter Controls for Low Inertia Microgrids",
+      "authors": "Fadi Kelada, Jérôme Buire, Nouredine Hadjsaid",
+      "venue": "2023 IEEE Power & Energy Society General Meeting (PESGM), Orlando, FL",
+      "year": 2023
+    },
+    {
+      "type": "conference",
+      "title": "Placement of Virtual Inertia in Islanded Distribution Networks with High Penetration of Inverter-Based Resources",
+      "authors": "Fadi Kelada, Jérôme Buire, Nouredine Hadjsaid",
+      "venue": "27th International Conference on Electricity Distribution (CIRED), Rome",
+      "year": 2023
+    },
+    {
+      "type": "conference",
+      "title": "Contribution of Power Converters in Frequency Stability of Low-inertia Power Systems",
+      "authors": "Fadi Kelada, Jérôme Buire",
+      "venue": "Conférence des Jeunes Chercheurs en Génie Electrique (JCGE), Le Croisic, France",
+      "year": 2022
+    }
+  ],
+  "contact": {
+    "location": "Grenoble, France",
+    "orcid": "0000-0001-5569-6322",
+    "linkedin": "fadi-kelada",
+    "github": "FKELADA"
+  }
+}

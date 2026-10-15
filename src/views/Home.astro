@@ -1,0 +1,51 @@
+---
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import PostList from "../components/PostList.astro";
+import portrait from "../assets/portrait.jpg";
+import cv from "../data/cv.json";
+import projects from "../data/projects.json";
+import { t, href, type Lang } from "../i18n";
+import { postsIn } from "../posts";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const posts = (await postsIn(lang)).slice(0, 3);
+---
+
+<Base lang={lang} path="/">
+  <section class="hero">
+    <div>
+      <h1>{cv.name}</h1>
+      <p class="tagline">{cv.tagline}</p>
+      <p class="about">{cv.about}</p>
+      <div class="buttons">
+        <a class="button primary" href={href(lang, "/projects/")}>{t[lang].projects}</a>
+        <a class="button" href={href(lang, "/cv/")}>{t[lang].cv}</a>
+        <a class="button" href={href(lang, "/blog/")}>{t[lang].blog}</a>
+      </div>
+    </div>
+    <Image class="portrait" src={portrait} alt={cv.name} width={400} height={400} loading="eager" />
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>{t[lang].featured}</h2>
+      <a href={href(lang, "/projects/")}>{t[lang].allProjects} →</a>
+    </div>
+    <div class="cards">
+      {projects.slice(0, 3).map((p) => <ProjectCard lang={lang} project={p} />)}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>{t[lang].latestPosts}</h2>
+      <a href={href(lang, "/blog/")}>{t[lang].allPosts} →</a>
+    </div>
+    <PostList lang={lang} posts={posts} />
+  </section>
+</Base>

@@ -1,0 +1,19 @@
+---
+import Base from "../layouts/Base.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import projects from "../data/projects.json";
+import { t, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+---
+
+<Base lang={lang} path="/projects/" title={t[lang].projects} description={t[lang].projectsIntro}>
+  <h1>{t[lang].projects}</h1>
+  <p class="muted" style="max-width: 60ch; margin: 0 0 32px">{t[lang].projectsIntro}</p>
+  <div class="cards">
+    {projects.map((p) => <ProjectCard lang={lang} project={p} />)}
+  </div>
+</Base>

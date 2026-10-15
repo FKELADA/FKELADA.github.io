@@ -1,0 +1,28 @@
+---
+import { t, href, formatDate, type Lang } from "../i18n";
+import { slugOf, type Post } from "../posts";
+
+interface Props {
+  lang: Lang;
+  posts: Post[];
+}
+const { lang, posts } = Astro.props;
+---
+
+{
+  posts.length === 0 ? (
+    <p class="empty">{t[lang].noPosts}</p>
+  ) : (
+    <ul class="posts">
+      {posts.map((post) => (
+        <li>
+          <a href={href(lang, `/blog/${slugOf(post)}/`)}>
+            <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date, lang)}</time>
+            <h3>{post.data.title}</h3>
+            <p>{post.data.description}</p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+}

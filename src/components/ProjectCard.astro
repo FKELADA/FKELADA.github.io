@@ -1,0 +1,21 @@
+---
+import { t, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+  project: { name: string; summary: { en: string; fr: string }; tags: string[]; repo: string | null; url: string | null; docs: string | null };
+}
+const { lang, project: p } = Astro.props;
+---
+
+<article class="card">
+  <h3>{p.name}</h3>
+  <p>{p.summary[lang]}</p>
+  <ul class="tags">{p.tags.map((tag) => <li>{tag}</li>)}</ul>
+  <div class="links">
+    {p.url && <a href={p.url}>{t[lang].live} →</a>}
+    {p.docs && <a href={p.docs}>{t[lang].docs}</a>}
+    {p.repo && <a href={p.repo}>{t[lang].code}</a>}
+    {!p.url && !p.repo && !p.docs && <span class="private">{t[lang].private}</span>}
+  </div>
+</article>

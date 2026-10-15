@@ -1,0 +1,65 @@
+[
+  {
+    "id": "fidopray",
+    "name": "FidoPray",
+    "summary": {
+      "en": "Write prayers and meditations alongside the Scriptures and the Church Fathers: verse lookup as you type, parallel Bibles in English, French and Arabic, and exports to images and Beamer slides. Offline, nothing leaves your device.",
+      "fr": "Écrire prières et méditations avec les Écritures et les Pères de l'Église : versets suggérés pendant la frappe, Bibles en parallèle en anglais, français et arabe, export en images et en diapositives Beamer. Hors ligne, rien ne quitte l'appareil."
+    },
+    "tags": [
+      "React",
+      "TypeScript",
+      "PWA"
+    ],
+    "repo": null,
+    "url": null,
+    "docs": null
+  },
+  {
+    "id": "omega-lab",
+    "name": "Omega Lab",
+    "summary": {
+      "en": "An interactive course on electrical power systems, from RLC circuits to grid stability: 67 lessons with live simulations, in French and English.",
+      "fr": "Un cours interactif sur les réseaux électriques, du circuit RLC à la stabilité des réseaux : 67 leçons avec simulations en direct, en français et en anglais."
+    },
+    "tags": [
+      "Svelte",
+      "TypeScript",
+      "Power systems"
+    ],
+    "repo": "https://github.com/FKELADA/Omega-Lab",
+    "url": "https://fkelada.github.io/Omega-Lab/",
+    "docs": null
+  },
+  {
+    "id": "g2elin",
+    "name": "G2ELin",
+    "summary": {
+      "en": "An open-access tool for small-signal stability and EMT simulation of power systems with a high share of inverter-based resources. MATLAB/Simulink library and a Python port with a web interface.",
+      "fr": "Un outil en accès libre pour la stabilité petits signaux et la simulation EMT des réseaux à forte part d'électronique de puissance. Bibliothèque MATLAB/Simulink et portage Python avec interface web."
+    },
+    "tags": [
+      "Python",
+      "MATLAB",
+      "Research"
+    ],
+    "repo": "https://github.com/FKELADA/G2ELin",
+    "url": null,
+    "docs": "https://fkelada-g2elin-docs.static.hf.space"
+  },
+  {
+    "id": "khedma",
+    "name": "Khedma",
+    "summary": {
+      "en": "A workspace for the catechism servants of a Coptic Orthodox church: classes, attendance, birthdays and weekly follow-up calls, in French and Arabic.",
+      "fr": "L'espace de travail des servants du catéchisme d'une église copte orthodoxe : classes, présences, anniversaires et appels de suivi hebdomadaires, en français et en arabe."
+    },
+    "tags": [
+      "Next.js",
+      "Supabase"
+    ],
+    "repo": null,
+    "url": null,
+    "docs": null
+  }
+]

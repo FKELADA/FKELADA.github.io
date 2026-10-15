@@ -1,0 +1,83 @@
+---
+import "../styles/global.css";
+import cv from "../data/cv.json";
+import { t, href, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  description?: string;
+  /** English path of this page ("/cv/"), used for the language switch and hreflang links. */
+  path: string;
+  /** Set when the other language has no equivalent page (e.g. a post without translation). */
+  otherLangPath?: string;
+  /** False when the other language has no equivalent page: no hreflang link is emitted for it. */
+  hasAlternate?: boolean;
+}
+
+const { lang, title, description, path, otherLangPath, hasAlternate = true } = Astro.props;
+const other: Lang = lang === "en" ? "fr" : "en";
+const pageTitle = title ? `${title} · ${cv.name}` : `${cv.name} · ${t[lang].tagline}`;
+const desc = description ?? cv.about;
+const site = Astro.site!;
+const canonical = new URL(href(lang, path), site);
+const switchTo = otherLangPath ?? href(other, path);
+const nav = [
+  { path: "/", label: t[lang].home },
+  { path: "/projects/", label: t[lang].projects },
+  { path: "/cv/", label: t[lang].cv },
+  { path: "/blog/", label: t[lang].blog },
+];
+const current = (p: string) => (p === "/" ? path === "/" : path.startsWith(p));
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang={lang} href={canonical} />
+    {hasAlternate && <link rel="alternate" hreflang={other} href={new URL(switchTo, site)} />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={lang === "en" ? "en_GB" : "fr_FR"} />
+  </head>
+  <body>
+    <a class="skip" href="#main">{lang === "en" ? "Skip to content" : "Aller au contenu"}</a>
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a class="brand" href={href(lang, "/")}>
+          <span class="mark" aria-hidden="true">FK</span>
+          <span>{cv.name}</span>
+        </a>
+        <nav aria-label={lang === "en" ? "Main" : "Principal"}>
+          {nav.map((n) => (
+            <a href={href(lang, n.path)} aria-current={current(n.path) ? "page" : undefined}>{n.label}</a>
+          ))}
+          <a class="lang" href={switchTo} hreflang={other} lang={other}>{t[lang].otherLang}</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main" class="wrap">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap footer-row">
+        <span>© {new Date().getFullYear()} {cv.name}</span>
+        <span class="links">
+          {cv.contact.github && <a href={`https://github.com/${cv.contact.github}`}>GitHub</a>}
+          {cv.contact.linkedin && <a href={`https://www.linkedin.com/in/${cv.contact.linkedin}/`}>LinkedIn</a>}
+          {cv.contact.orcid && <a href={`https://orcid.org/${cv.contact.orcid}`}>ORCID</a>}
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>

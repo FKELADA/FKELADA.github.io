@@ -1,0 +1,118 @@
+---
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import portrait from "../assets/portrait.jpg";
+import cv from "../data/cv.json";
+import { t, formatMonth, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const L = t[lang];
+const span = (e: { start: string | number; end: string | number }) => `${formatMonth(e.start, lang)} – ${formatMonth(e.end, lang)}`;
+const journals = cv.publications.filter((p) => p.type === "article");
+const conferences = cv.publications.filter((p) => p.type === "conference");
+---
+
+<Base lang={lang} path="/cv/" title={L.cv} description={`${cv.name}: ${cv.tagline}`}>
+  <header class="cv-head">
+    <Image class="portrait" src={portrait} alt={cv.name} width={240} height={240} />
+    <div>
+      <h1>{cv.name}</h1>
+      <div class="muted">{cv.tagline}</div>
+      <ul class="cv-contact">
+        {cv.contact.location && <li>{cv.contact.location}</li>}
+        {cv.contact.github && <li><a href={`https://github.com/${cv.contact.github}`}>github.com/{cv.contact.github}</a></li>}
+        {cv.contact.linkedin && <li><a href={`https://www.linkedin.com/in/${cv.contact.linkedin}/`}>LinkedIn</a></li>}
+        {cv.contact.orcid && <li><a href={`https://orcid.org/${cv.contact.orcid}`}>ORCID {cv.contact.orcid}</a></li>}
+      </ul>
+    </div>
+    <button class="button print-button" type="button" onclick="window.print()">{L.print}</button>
+  </header>
+  {L.cvNote && <p class="note">{L.cvNote}</p>}
+
+  <div class="cv-grid">
+    <div>
+      <section class="cv-section">
+        <h2>{L.about}</h2>
+        <p style="margin: 0">{cv.about}</p>
+      </section>
+
+      {[
+        [L.experience, cv.experience],
+        [L.education, cv.education],
+      ].map(([title, entries]) => (
+        <section class="cv-section">
+          <h2>{title as string}</h2>
+          {(entries as typeof cv.education).map((e) => (
+            <div class="entry">
+              <h3>{e.title}</h3>
+              <div class="org">{e.organisation}</div>
+              <div class="when">{span(e)} · {e.location}</div>
+              {e.details && <p>{e.details}</p>}
+            </div>
+          ))}
+        </section>
+      ))}
+
+      <section class="cv-section">
+        <h2>{L.publications}</h2>
+        {[
+          [L.journal, journals],
+          [L.conference, conferences],
+        ].map(([title, list]) => (
+          <>
+            <h3 style="font-size: 15px; margin: 0 0 8px">{title as string}</h3>
+            <ol class="pubs">
+              {(list as typeof cv.publications).map((p) => (
+                <li>
+                  {p.authors}. “{p.title}”. <em>{p.venue}</em>, {p.year}
+                  {"status" in p && p.status && <span class="status"> ({p.status})</span>}.
+                </li>
+              ))}
+            </ol>
+          </>
+        ))}
+      </section>
+    </div>
+
+    <aside>
+      <section class="cv-section">
+        <h2>{L.figures}</h2>
+        <div class="figures">
+          {cv.highlights.map((h) => (
+            <div class="figure"><strong>{h.value}</strong><span>{h.label}</span></div>
+          ))}
+        </div>
+      </section>
+
+      <section class="cv-section">
+        <h2>{L.achievements}</h2>
+        {cv.achievements.map((a) => (
+          <div class="achievement"><strong>{a.title}</strong><span>{a.details}</span></div>
+        ))}
+      </section>
+
+      <section class="cv-section">
+        <h2>{L.skills}</h2>
+        {cv.skills.map((g) => (
+          <div class="skill-group">
+            <h3>{g.group}</h3>
+            <ul class="tags">{g.items.map((s) => <li>{s}</li>)}</ul>
+          </div>
+        ))}
+      </section>
+
+      <section class="cv-section">
+        <h2>{L.languages}</h2>
+        {cv.languages.map((l) => (
+          <div class="lang-row">
+            <span>{l.name}</span>
+            <span class="meter" role="img" aria-label={`${l.level} / 5`}><span style={`width: ${(l.level / 5) * 100}%`} /></span>
+          </div>
+        ))}
+      </section>
+    </aside>
+  </div>
+</Base>

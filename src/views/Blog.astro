@@ -1,0 +1,18 @@
+---
+import Base from "../layouts/Base.astro";
+import PostList from "../components/PostList.astro";
+import { t, type Lang } from "../i18n";
+import { postsIn } from "../posts";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const posts = await postsIn(lang);
+---
+
+<Base lang={lang} path="/blog/" title={t[lang].blog} description={t[lang].blogIntro}>
+  <h1>{t[lang].blog}</h1>
+  <p class="muted" style="margin: 0 0 24px">{t[lang].blogIntro}</p>
+  <PostList lang={lang} posts={posts} />
+</Base>

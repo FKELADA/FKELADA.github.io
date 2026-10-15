@@ -1,0 +1,35 @@
+---
+import { render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { t, href, formatDate, type Lang } from "../i18n";
+import { slugOf, type Post } from "../posts";
+
+interface Props {
+  lang: Lang;
+  post: Post;
+}
+const { lang, post } = Astro.props;
+const { Content } = await render(post);
+const slug = slugOf(post);
+const other: Lang = lang === "en" ? "fr" : "en";
+const translation = post.data.translationOf;
+---
+
+<Base
+  lang={lang}
+  path={`/blog/${slug}/`}
+  title={post.data.title}
+  description={post.data.description}
+  otherLangPath={translation ? href(other, `/blog/${translation}/`) : href(other, "/blog/")}
+  hasAlternate={Boolean(translation)}
+>
+  <article class="prose">
+    <p><a href={href(lang, "/blog/")}>← {t[lang].backToBlog}</a></p>
+    <h1>{post.data.title}</h1>
+    <p class="post-meta">
+      <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date, lang)}</time>
+      {translation && <> · <a href={href(other, `/blog/${translation}/`)} hreflang={other}>{t[lang].alsoIn}</a></>}
+    </p>
+    <Content />
+  </article>
+</Base>
