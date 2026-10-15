@@ -14,8 +14,9 @@ permissions:
   pages: write
   id-token: write
 
+# Builds of the same branch or PR replace each other; they never cancel a deploy.
 concurrency:
-  group: pages
+  group: build-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -38,6 +39,9 @@ jobs:
     if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
