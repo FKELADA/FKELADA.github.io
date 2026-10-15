@@ -18,7 +18,8 @@ Every push to `main` builds and deploys the site (`.github/workflows/deploy.yml`
 | What | Where | Edited from |
 |---|---|---|
 | Blog posts | `src/content/blog/en/*.md`, `src/content/blog/fr/*.md` | Drafts in Fadi-Global `blog-drafts/`, published with `/post publish` |
-| CV | `src/data/cv.json` | Generated from Fadi-Global `cv/cv.yaml` by `node hub/cli.mjs sync-site` |
+| CV (EN, FR) | `src/data/cv.en.json`, `src/data/cv.fr.json` | Generated from Fadi-Global `cv/cv.yaml` by `node hub/cli.mjs sync-site` |
+| CV PDFs | `public/cv/Fadi-Kelada-CV-en.pdf`, `-fr.pdf` | Compiled from the AltaCV LaTeX template by the same `sync-site` |
 | Projects | `src/data/projects.json` | Generated from Fadi-Global `projects.yaml` (entries with `showcase: true`) |
 | Portrait | `src/assets/portrait.jpg` | Copied by `sync-site` |
 | Interface text | `src/i18n.ts` | By hand |

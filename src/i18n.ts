@@ -33,7 +33,7 @@ export const t = {
     thesis: "Thesis",
     software: "Software",
     email: "Email",
-    print: "Print / save as PDF",
+    print: "Download the CV (PDF)",
     present: "present",
     projectsIntro: "Tools for power-system research and teaching, and apps I build for daily life and my church community.",
     blogIntro: "Notes on power systems, research and the things I build.",
@@ -42,6 +42,7 @@ export const t = {
     backToBlog: "All posts",
     notFound: "This page doesn't exist.",
     cvNote: "",
+    themes: { auto: "◐ Auto", light: "☀ Light", dark: "☾ Dark", title: "Theme: automatic, light or dark" },
   },
   fr: {
     home: "Accueil",
@@ -75,7 +76,7 @@ export const t = {
     thesis: "Thèse",
     software: "Logiciel",
     email: "E-mail",
-    print: "Imprimer / enregistrer en PDF",
+    print: "Télécharger le CV (PDF)",
     present: "aujourd'hui",
     projectsIntro: "Des outils pour la recherche et l'enseignement en réseaux électriques, et des applications pour le quotidien et ma communauté paroissiale.",
     blogIntro: "Notes sur les réseaux électriques, la recherche et ce que je construis.",
@@ -83,7 +84,8 @@ export const t = {
     published: "Publié le",
     backToBlog: "Tous les articles",
     notFound: "Cette page n'existe pas.",
-    cvNote: "Le contenu du CV est en anglais.",
+    cvNote: "",
+    themes: { auto: "◐ Auto", light: "☀ Clair", dark: "☾ Sombre", title: "Thème : automatique, clair ou sombre" },
   },
 } as const;
 

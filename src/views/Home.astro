@@ -4,7 +4,7 @@ import Base from "../layouts/Base.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import PostList from "../components/PostList.astro";
 import portrait from "../assets/portrait.jpg";
-import cv from "../data/cv.json";
+import { cvFor } from "../cv";
 import projects from "../data/projects.json";
 import { t, href, type Lang } from "../i18n";
 import { postsIn } from "../posts";
@@ -13,6 +13,7 @@ interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
+const cv = cvFor(lang);
 const posts = (await postsIn(lang)).slice(0, 3);
 ---
 

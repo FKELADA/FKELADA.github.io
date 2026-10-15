@@ -1,0 +1,264 @@
+{
+  "name": "Fadi Kelada",
+  "tagline": "Consultant outils de planification chez Enedis | Docteur en génie électrique",
+  "about": "Ingénieur réseaux électriques chez Enedis, où je travaille sur les outils de planification du réseau, titulaire d'un doctorat sur la dynamique et la stabilité des réseaux à faible inertie dominés par des ressources raccordées par convertisseurs. Je développe des outils libres pour l'analyse de stabilité (G2ELin) et pour l'enseignement des réseaux électriques (Omega Lab).",
+  "experience": [
+    {
+      "title": "Consultant, département technique (outils de planification)",
+      "organisation": "Enedis",
+      "start": "2024-11",
+      "end": "present",
+      "details": "Expert des outils de planification du réseau basse tension. Pilote du Projet refonte des outils de calcul, dont l'objectif est de refondre les outils de calcul de planification à l'horizon 2032."
+    },
+    {
+      "title": "Doctorant",
+      "organisation": "Laboratoire de génie électrique de Grenoble (G2ELab), Université Grenoble Alpes",
+      "start": "2021-10",
+      "end": "2024-09",
+      "location": "Grenoble, France",
+      "details": "Stabilité petits signaux et modélisation EMT (transitoires électromagnétiques) des réseaux à faible inertie à forte part de ressources raccordées par convertisseurs ; commande des convertisseurs grid-forming. Auteur de G2ELin. Plus de 100 heures d'enseignement, 2 stagiaires encadrés."
+    },
+    {
+      "title": "Ingénieur R&D (stage)",
+      "organisation": "Supergrid Institute",
+      "start": "2021-03",
+      "end": "2021-08",
+      "location": "Lyon, France",
+      "details": "Développement de modèles et de simulations de transitoires électromagnétiques (EMT) des réseaux électriques dans OpenModelica, pour des réseaux de référence intégrant des liaisons HVDC et des réseaux hybrides AC-DC."
+    },
+    {
+      "title": "Stagiaire en gestion de l'énergie",
+      "organisation": "Schneider Electric",
+      "start": "2020-02",
+      "end": "2020-08",
+      "location": "Le Caire, Égypte",
+      "details": "Stage de fin d'études : à la tête de mon équipe, j'ai développé de nouvelles solutions de gestion de l'énergie pour les systèmes de climatisation. Le projet a remporté le premier prix."
+    }
+  ],
+  "education": [
+    {
+      "title": "Doctorat en génie électrique",
+      "organisation": "Université Grenoble Alpes, Laboratoire de génie électrique de Grenoble (G2ELab)",
+      "start": "2021-10",
+      "end": "2024-09",
+      "location": "Grenoble, France",
+      "details": "Thèse : \"Study of dynamics and stability in low inertia power systems with high penetration of inverter-based resources\" (« Étude des dynamiques et de la stabilité des réseaux électriques faible inertie avec une forte pénétration de ressources renouvelables »), soutenue le 24 septembre 2024. Encadrants : Prof. Nouredine Hadjsaid et Dr. Jérôme Buire.",
+      "link": "https://theses.fr/2024GRALT065"
+    },
+    {
+      "title": "Master en génie électrique",
+      "organisation": "Grenoble INP, Université Grenoble Alpes",
+      "start": "2020-09",
+      "end": "2021-09",
+      "location": "Grenoble, France",
+      "details": "Major de promotion. Note : 16,48/20."
+    },
+    {
+      "title": "Licence en génie de l'énergie et des énergies renouvelables",
+      "organisation": "Ain Shams University",
+      "start": "2015-09",
+      "end": "2020-08",
+      "location": "Le Caire, Égypte",
+      "details": "Major de promotion. Moyenne générale : 4,0/4,0."
+    }
+  ],
+  "projects": [
+    {
+      "name": "G2ELin",
+      "details": "Outil en accès libre de linéarisation et de simulation EMT des réseaux électriques : bibliothèque MATLAB/Simulink et portage Python avec un backend FastAPI et une interface web, plus de 530 tests automatisés et vérifications de parité avec MATLAB.",
+      "link": "https://github.com/FKELADA/G2ELin"
+    },
+    {
+      "name": "Omega Lab",
+      "details": "Cours interactif sur les réseaux électriques, des circuits RLC à la stabilité des réseaux : 67 leçons avec simulations en direct, en français et en anglais.",
+      "link": "https://fkelada.github.io/Omega-Lab/"
+    }
+  ],
+  "volunteering": [
+    {
+      "title": "Servant de catéchèse",
+      "organisation": "Église copte orthodoxe Saint-Michel et Saint-Georges, Villejuif",
+      "details": "Participation au service de catéchèse, et conception de Khedma, l'application web des servants : cours, présences, anniversaires et appels de suivi hebdomadaires, en français et en arabe."
+    },
+    {
+      "title": "IEEE Région 8, Étudiants et jeunes professionnels (SYP)",
+      "organisation": "IEEE",
+      "details": "12 mois de bénévolat ; coprésident du congrès IEEE R8 SYP organisé à Grenoble en 2024."
+    }
+  ],
+  "highlights": [
+    {
+      "value": "2",
+      "label": "Articles de revue"
+    },
+    {
+      "value": "4",
+      "label": "Communications en conférence"
+    },
+    {
+      "value": "57",
+      "label": "Citations (h-index 3)"
+    },
+    {
+      "value": "1",
+      "label": "Outil libre"
+    },
+    {
+      "value": "100+",
+      "label": "Heures d'enseignement"
+    },
+    {
+      "value": "2",
+      "label": "Stagiaires encadrés"
+    }
+  ],
+  "achievements": [
+    {
+      "title": "Secrétaire du congrès IEEE SYP R8",
+      "details": "Coprésident du congrès IEEE R8 SYP organisé à Grenoble en 2024."
+    },
+    {
+      "title": "Meilleure solution de gestion de l'énergie",
+      "details": "À la tête de l'équipe de mon projet de fin d'études, premier prix du concours de projets de premier cycle de Schneider Electric."
+    },
+    {
+      "title": "Boursier",
+      "details": "Major de promotion en licence ; bourse entièrement financée du gouvernement français pour mon master et mon doctorat."
+    }
+  ],
+  "skills": [
+    {
+      "group": "Réseaux électriques",
+      "items": [
+        "Stabilité petits signaux",
+        "EMT simulation",
+        "Commande grid-forming et grid-following",
+        "Analyse modale",
+        "Planification des réseaux"
+      ]
+    },
+    {
+      "group": "Outils de simulation",
+      "items": [
+        "MATLAB",
+        "Simulink",
+        "OpenModelica",
+        "EMTP-RV",
+        "Hypersim",
+        "DIgSILENT PowerFactory",
+        "pandapower",
+        "HOMER"
+      ]
+    },
+    {
+      "group": "Programmation",
+      "items": [
+        "Python (NumPy, SciPy, SymPy, FastAPI, pytest)",
+        "C/C++",
+        "Modelica",
+        "TypeScript"
+      ]
+    },
+    {
+      "group": "Web et outils",
+      "items": [
+        "React",
+        "Svelte",
+        "Next.js",
+        "Git & GitHub Actions",
+        "Docker",
+        "LaTeX"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "name": "Arabe",
+      "level": 5
+    },
+    {
+      "name": "Anglais",
+      "level": 4.5
+    },
+    {
+      "name": "Français",
+      "level": 4.5
+    },
+    {
+      "name": "Allemand",
+      "level": 1
+    }
+  ],
+  "publications": [
+    {
+      "type": "article",
+      "title": "Revisiting Small-Signal Modeling for Analyzing Fast Dynamic Interactions in Converter-Dominated Power Systems",
+      "authors": "Fadi Kelada, Jérôme Buire, Nouredine Hadjsaid",
+      "venue": "IEEE Transactions on Power Systems, 40(5), 3819–3832",
+      "year": 2025,
+      "doi": "10.1109/TPWRS.2025.3550287"
+    },
+    {
+      "type": "article",
+      "title": "Tuning Grid-forming Converters for Optimal Allocation of Virtual Inertia and Damping in Low-Inertia Power Systems",
+      "authors": "Jérôme Buire, Fadi Kelada, J. Marchand, Nouredine Hadjsaid",
+      "venue": "International Journal of Electrical Power & Energy Systems, 178, 111977",
+      "year": 2026,
+      "doi": "10.1016/j.ijepes.2026.111977"
+    },
+    {
+      "type": "conference",
+      "title": "Stability of Distribution Networks under High Penetration of Inverter-Based Resources: Highlight of Novel Interactions",
+      "authors": "Fadi Kelada, Jérôme Buire, Nouredine Hadjsaid",
+      "venue": "28th International Conference on Electricity Distribution (CIRED 2025), IET Conference Proceedings 2025(14), 2919–2923",
+      "year": 2025,
+      "doi": "10.1049/icp.2025.2210"
+    },
+    {
+      "type": "conference",
+      "title": "Comparative Study of Decentralized Grid-forming Converter Controls for Inverter-based Microgrids",
+      "authors": "Fadi Kelada, Jérôme Buire, Nouredine Hadjsaid",
+      "venue": "2023 IEEE Power & Energy Society General Meeting (PESGM), Orlando, FL",
+      "year": 2023,
+      "doi": "10.1109/PESGM52003.2023.10252590"
+    },
+    {
+      "type": "conference",
+      "title": "Placement of Virtual Inertia in Islanded Distribution Networks with High Penetration of Inverter-Based Resources",
+      "authors": "Fadi Kelada, Jérôme Buire, Nouredine Hadjsaid",
+      "venue": "27th International Conference on Electricity Distribution (CIRED 2023), Rome",
+      "year": 2023
+    },
+    {
+      "type": "conference",
+      "title": "Contribution of Power Converters in Frequency Stability of Low-inertia Power Systems",
+      "authors": "Fadi Kelada, Jérôme Buire",
+      "venue": "Conférence des Jeunes Chercheurs en Génie Electrique (JCGE), Le Croisic, France",
+      "year": 2022
+    },
+    {
+      "type": "thesis",
+      "title": "Study of Dynamics and Stability in Low Inertia Power Systems with High Penetration of Inverter-Based Resources",
+      "authors": "Fadi Kelada",
+      "venue": "Thèse de doctorat, Université Grenoble Alpes",
+      "year": 2024,
+      "link": "https://theses.fr/2024GRALT065"
+    },
+    {
+      "type": "software",
+      "title": "G2ELin: An Open-Access Power System Linearization and EMT Simulation Tool",
+      "authors": "Fadi Kelada",
+      "venue": "github.com/FKELADA/G2ELin",
+      "year": 2023,
+      "link": "https://github.com/FKELADA/G2ELin"
+    }
+  ],
+  "contact": {
+    "email": "keladafadi@hotmail.com",
+    "location": "Puteaux, France",
+    "linkedin": "fadi-kelada",
+    "github": "FKELADA",
+    "orcid": "0000-0001-5569-6322",
+    "scholar": "nHG6BO8AAAAJ"
+  }
+}

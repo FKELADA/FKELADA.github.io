@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import cv from "../data/cv.json";
+import { cvFor } from "../cv";
 import { t, href, type Lang } from "../i18n";
 
 interface Props {
@@ -16,6 +16,7 @@ interface Props {
 }
 
 const { lang, title, description, path, otherLangPath, hasAlternate = true } = Astro.props;
+const cv = cvFor(lang);
 const other: Lang = lang === "en" ? "fr" : "en";
 const pageTitle = title ? `${title} · ${cv.name}` : `${cv.name} · ${t[lang].tagline}`;
 const desc = description ?? cv.about;
@@ -37,6 +38,13 @@ const current = (p: string) => (p === "/" ? path === "/" : path.startsWith(p));
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
+    <script is:inline>
+      // Apply the visitor's theme before the first paint (no flash).
+      try {
+        const t = localStorage.getItem("theme");
+        if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+      } catch {}
+    </script>
     <title>{pageTitle}</title>
     <meta name="description" content={desc} />
     <link rel="canonical" href={canonical} />
@@ -63,6 +71,7 @@ const current = (p: string) => (p === "/" ? path === "/" : path.startsWith(p));
             <a href={href(lang, n.path)} aria-current={current(n.path) ? "page" : undefined}>{n.label}</a>
           ))}
           <a class="lang" href={switchTo} hreflang={other} lang={other}>{t[lang].otherLang}</a>
+          <button class="theme-toggle" type="button" data-labels={JSON.stringify(t[lang].themes)} aria-live="polite">{t[lang].themes.auto}</button>
         </nav>
       </div>
     </header>
@@ -80,5 +89,27 @@ const current = (p: string) => (p === "/" ? path === "/" : path.startsWith(p));
         </span>
       </div>
     </footer>
+    <script is:inline>
+      // Theme button: auto (follow the OS) -> light -> dark.
+      (() => {
+        const button = document.querySelector(".theme-toggle");
+        if (!button) return;
+        const labels = JSON.parse(button.dataset.labels);
+        const order = ["auto", "light", "dark"];
+        const read = () => { try { return localStorage.getItem("theme") || "auto"; } catch { return "auto"; } };
+        const show = (mode) => {
+          button.textContent = labels[mode];
+          button.title = labels.title;
+          if (mode === "auto") delete document.documentElement.dataset.theme;
+          else document.documentElement.dataset.theme = mode;
+        };
+        show(read());
+        button.addEventListener("click", () => {
+          const next = order[(order.indexOf(read()) + 1) % order.length];
+          try { next === "auto" ? localStorage.removeItem("theme") : localStorage.setItem("theme", next); } catch {}
+          show(next);
+        });
+      })();
+    </script>
   </body>
 </html>
