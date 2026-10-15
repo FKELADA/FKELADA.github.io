@@ -11,8 +11,17 @@ interface Props {
 const { lang } = Astro.props;
 const L = t[lang];
 const span = (e: { start: string | number; end: string | number }) => `${formatMonth(e.start, lang)} – ${formatMonth(e.end, lang)}`;
-const journals = cv.publications.filter((p) => p.type === "article");
-const conferences = cv.publications.filter((p) => p.type === "conference");
+type Entry = { title: string; organisation: string; start?: string | number; end?: string | number; location?: string; details?: string; link?: string };
+type Pub = { type: string; title: string; authors: string; venue: string; year: number; doi?: string; link?: string; status?: string };
+const pubs = cv.publications as Pub[];
+const pubGroups: [string, Pub[]][] = [
+  [L.journal, pubs.filter((p) => p.type === "article")],
+  [L.conference, pubs.filter((p) => p.type === "conference")],
+  [L.thesis, pubs.filter((p) => p.type === "thesis")],
+  [L.software, pubs.filter((p) => p.type === "software")],
+].filter(([, list]) => (list as Pub[]).length > 0) as [string, Pub[]][];
+const when = (e: Entry) => [e.start !== undefined && e.end !== undefined ? span(e as { start: string; end: string }) : null, e.location].filter(Boolean).join(" · ");
+const contact = cv.contact as Record<string, string | undefined>;
 ---
 
 <Base lang={lang} path="/cv/" title={L.cv} description={`${cv.name}: ${cv.tagline}`}>
@@ -22,9 +31,11 @@ const conferences = cv.publications.filter((p) => p.type === "conference");
       <h1>{cv.name}</h1>
       <div class="muted">{cv.tagline}</div>
       <ul class="cv-contact">
-        {cv.contact.location && <li>{cv.contact.location}</li>}
+        {contact.location && <li>{contact.location}</li>}
+        {contact.email && <li><a href={`mailto:${contact.email}`}>{contact.email}</a></li>}
         {cv.contact.github && <li><a href={`https://github.com/${cv.contact.github}`}>github.com/{cv.contact.github}</a></li>}
         {cv.contact.linkedin && <li><a href={`https://www.linkedin.com/in/${cv.contact.linkedin}/`}>LinkedIn</a></li>}
+        {contact.scholar && <li><a href={`https://scholar.google.com/citations?user=${contact.scholar}`}>Google Scholar</a></li>}
         {cv.contact.orcid && <li><a href={`https://orcid.org/${cv.contact.orcid}`}>ORCID {cv.contact.orcid}</a></li>}
       </ul>
     </div>
@@ -39,36 +50,48 @@ const conferences = cv.publications.filter((p) => p.type === "conference");
         <p style="margin: 0">{cv.about}</p>
       </section>
 
-      {[
+      {([
         [L.experience, cv.experience],
         [L.education, cv.education],
-      ].map(([title, entries]) => (
+        [L.volunteering, cv.volunteering ?? []],
+      ] as [string, Entry[]][]).filter(([, entries]) => entries.length > 0).map(([title, entries]) => (
         <section class="cv-section">
-          <h2>{title as string}</h2>
-          {(entries as typeof cv.education).map((e) => (
+          <h2>{title}</h2>
+          {entries.map((e) => (
             <div class="entry">
               <h3>{e.title}</h3>
               <div class="org">{e.organisation}</div>
-              <div class="when">{span(e)} · {e.location}</div>
-              {e.details && <p>{e.details}</p>}
+              {when(e) && <div class="when">{when(e)}</div>}
+              {e.details && <p>{e.details}{e.link && <> <a href={e.link}>→</a></>}</p>}
             </div>
           ))}
         </section>
       ))}
 
+      {cv.projects?.length > 0 && (
+        <section class="cv-section">
+          <h2>{L.projectsCv}</h2>
+          {cv.projects.map((p) => (
+            <div class="entry">
+              <h3>{p.link ? <a href={p.link}>{p.name}</a> : p.name}</h3>
+              <p>{p.details}</p>
+            </div>
+          ))}
+        </section>
+      )}
+
       <section class="cv-section">
         <h2>{L.publications}</h2>
-        {[
-          [L.journal, journals],
-          [L.conference, conferences],
-        ].map(([title, list]) => (
+        {pubGroups.map(([title, list]) => (
           <>
-            <h3 style="font-size: 15px; margin: 0 0 8px">{title as string}</h3>
+            <h3 style="font-size: 15px; margin: 0 0 8px">{title}</h3>
             <ol class="pubs">
-              {(list as typeof cv.publications).map((p) => (
+              {list.map((p) => (
                 <li>
                   {p.authors}. “{p.title}”. <em>{p.venue}</em>, {p.year}
-                  {"status" in p && p.status && <span class="status"> ({p.status})</span>}.
+                  {p.status && <span class="status"> ({p.status})</span>}.
+                  {p.doi && <> <a href={`https://doi.org/${p.doi}`}>doi:{p.doi}</a></>}
+                  {!p.doi && p.link && <> <a href={p.link}>{L.readMore} →</a></>}
                 </li>
               ))}
             </ol>

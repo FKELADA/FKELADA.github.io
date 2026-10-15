@@ -1,8 +1,23 @@
 {
   "name": "Fadi Kelada",
-  "tagline": "PhD Candidate | Control & Stability of Power Systems",
-  "about": "Specialized in the stability and control of power systems, with a focus on renewables. Eager to leverage my expertise to improve grid resilience and facilitate the energy transition.",
+  "tagline": "Planning-tools consultant at Enedis | Ph.D. in Electrical Engineering",
+  "about": "Power-systems engineer at Enedis, where I work on the network planning tools, with a PhD on the dynamics and stability of low-inertia grids dominated by inverter-based resources. I build open tools for stability analysis (G2ELin) and for teaching power systems (Omega Lab).",
   "experience": [
+    {
+      "title": "Consultant, Technical Department (planning tools)",
+      "organisation": "Enedis",
+      "start": "2024-11",
+      "end": "present",
+      "details": "Expert on the low-voltage network planning tools. Pilot of the project to redesign the planning calculation tools for 2032 (Projet refonte des outils de calcul)."
+    },
+    {
+      "title": "Doctoral researcher",
+      "organisation": "Grenoble Electrical Engineering Lab (G2ELab), Université Grenoble Alpes",
+      "start": "2021-10",
+      "end": "2024-09",
+      "location": "Grenoble, France",
+      "details": "Small-signal stability and EMT modelling of low-inertia grids with high shares of inverter-based resources; grid-forming converter control. Author of G2ELin. 100+ teaching hours, 2 interns supervised."
+    },
     {
       "title": "R&D Engineer (internship)",
       "organisation": "Supergrid Institute",
@@ -23,15 +38,16 @@
   "education": [
     {
       "title": "Ph.D. in Electrical Engineering",
-      "organisation": "University of Grenoble Alpes, Grenoble Electrical Engineering Lab (G2ELab)",
+      "organisation": "Université Grenoble Alpes, Grenoble Electrical Engineering Lab (G2ELab)",
       "start": "2021-10",
-      "end": "present",
+      "end": "2024-09",
       "location": "Grenoble, France",
-      "details": "Keywords: stability, converter control, microgrids, low inertia, EMT modeling and simulation."
+      "details": "Thesis: \"Study of dynamics and stability in low inertia power systems with high penetration of inverter-based resources\", defended on 24 September 2024. Supervisors: Prof. Nouredine Hadjsaid and Dr. Jérôme Buire.",
+      "link": "https://theses.fr/2024GRALT065"
     },
     {
       "title": "M.Sc. in Electrical Engineering",
-      "organisation": "Grenoble INP, University of Grenoble Alpes",
+      "organisation": "Grenoble INP, Université Grenoble Alpes",
       "start": "2020-09",
       "end": "2021-09",
       "location": "Grenoble, France",
@@ -46,34 +62,54 @@
       "details": "Valedictorian. GPA: 4.0/4.0."
     }
   ],
+  "projects": [
+    {
+      "name": "G2ELin",
+      "details": "Open-access power-system linearization and EMT simulation tool: MATLAB/Simulink library and a Python port with a FastAPI backend and web interface, 530+ automated tests and MATLAB parity checks.",
+      "link": "https://github.com/FKELADA/G2ELin"
+    },
+    {
+      "name": "Omega Lab",
+      "details": "Interactive course on electrical power systems, from RLC circuits to grid stability: 67 lessons with live simulations, in French and English.",
+      "link": "https://fkelada.github.io/Omega-Lab/"
+    }
+  ],
+  "volunteering": [
+    {
+      "title": "Catechism servant",
+      "organisation": "Coptic Orthodox Church of St Michael & St George, Villejuif",
+      "details": "Serve in the catechism service, and built Khedma, the servants' web app: classes, attendance, birthdays and weekly follow-up calls, in French and Arabic."
+    },
+    {
+      "title": "IEEE Region 8 Student and Young Professionals (SYP)",
+      "organisation": "IEEE",
+      "details": "12 months of volunteering; co-chaired the IEEE R8 SYP Congress held in Grenoble in 2024."
+    }
+  ],
   "highlights": [
     {
       "value": "2",
       "label": "Journal articles"
     },
     {
-      "value": "3",
-      "label": "Conference articles"
+      "value": "4",
+      "label": "Conference papers"
+    },
+    {
+      "value": "57",
+      "label": "Citations (h-index 3)"
     },
     {
       "value": "1",
-      "label": "Open-access tool on GitHub"
-    },
-    {
-      "value": "6",
-      "label": "Poster presentations"
-    },
-    {
-      "value": "2",
-      "label": "Interns supervised"
-    },
-    {
-      "value": "12",
-      "label": "Months of volunteering with IEEE R8 SYP"
+      "label": "Open-source tool"
     },
     {
       "value": "100+",
       "label": "Teaching hours"
+    },
+    {
+      "value": "2",
+      "label": "Interns supervised"
     }
   ],
   "achievements": [
@@ -92,24 +128,46 @@
   ],
   "skills": [
     {
-      "group": "Simulation",
+      "group": "Power systems",
+      "items": [
+        "Small-signal stability",
+        "EMT simulation",
+        "Grid-forming & grid-following control",
+        "Modal analysis",
+        "Network planning"
+      ]
+    },
+    {
+      "group": "Simulation tools",
       "items": [
         "MATLAB",
         "Simulink",
         "OpenModelica",
-        "Hypersim",
         "EMTP-RV",
-        "DIgSILENT",
+        "Hypersim",
+        "DIgSILENT PowerFactory",
+        "pandapower",
         "HOMER"
       ]
     },
     {
       "group": "Programming",
       "items": [
-        "Python",
+        "Python (NumPy, SciPy, SymPy, FastAPI, pytest)",
         "C/C++",
         "Modelica",
-        "Machine Learning & Optimization Toolbox"
+        "TypeScript"
+      ]
+    },
+    {
+      "group": "Web & tooling",
+      "items": [
+        "React",
+        "Svelte",
+        "Next.js",
+        "Git & GitHub Actions",
+        "Docker",
+        "LaTeX"
       ]
     }
   ],
@@ -136,30 +194,39 @@
       "type": "article",
       "title": "Revisiting Small-Signal Modeling for Analyzing Fast Dynamic Interactions in Converter-Dominated Power Systems",
       "authors": "Fadi Kelada, Jérôme Buire, Nouredine Hadjsaid",
-      "venue": "IEEE Transactions on Power Systems",
-      "year": 2024,
-      "status": "pending publication"
+      "venue": "IEEE Transactions on Power Systems, 40(5), 3819–3832",
+      "year": 2025,
+      "doi": "10.1109/TPWRS.2025.3550287"
     },
     {
       "type": "article",
-      "title": "Tuning Grid-forming Converters for Optimal Allocation of Virtual Inertia and Damping in Low Inertia Power Systems",
-      "authors": "Fadi Kelada, Jérôme Buire, Nouredine Hadjsaid",
-      "venue": "IEEE Access",
-      "year": 2024,
-      "status": "pending submission"
+      "title": "Tuning Grid-forming Converters for Optimal Allocation of Virtual Inertia and Damping in Low-Inertia Power Systems",
+      "authors": "Jérôme Buire, Fadi Kelada, J. Marchand, Nouredine Hadjsaid",
+      "venue": "International Journal of Electrical Power & Energy Systems, 178, 111977",
+      "year": 2026,
+      "doi": "10.1016/j.ijepes.2026.111977"
     },
     {
       "type": "conference",
-      "title": "Comparative Study of Decentralized Grid-forming Converter Controls for Low Inertia Microgrids",
+      "title": "Stability of Distribution Networks under High Penetration of Inverter-Based Resources: Highlight of Novel Interactions",
+      "authors": "Fadi Kelada, Jérôme Buire, Nouredine Hadjsaid",
+      "venue": "28th International Conference on Electricity Distribution (CIRED 2025), IET Conference Proceedings 2025(14), 2919–2923",
+      "year": 2025,
+      "doi": "10.1049/icp.2025.2210"
+    },
+    {
+      "type": "conference",
+      "title": "Comparative Study of Decentralized Grid-forming Converter Controls for Inverter-based Microgrids",
       "authors": "Fadi Kelada, Jérôme Buire, Nouredine Hadjsaid",
       "venue": "2023 IEEE Power & Energy Society General Meeting (PESGM), Orlando, FL",
-      "year": 2023
+      "year": 2023,
+      "doi": "10.1109/PESGM52003.2023.10252590"
     },
     {
       "type": "conference",
       "title": "Placement of Virtual Inertia in Islanded Distribution Networks with High Penetration of Inverter-Based Resources",
       "authors": "Fadi Kelada, Jérôme Buire, Nouredine Hadjsaid",
-      "venue": "27th International Conference on Electricity Distribution (CIRED), Rome",
+      "venue": "27th International Conference on Electricity Distribution (CIRED 2023), Rome",
       "year": 2023
     },
     {
@@ -168,12 +235,30 @@
       "authors": "Fadi Kelada, Jérôme Buire",
       "venue": "Conférence des Jeunes Chercheurs en Génie Electrique (JCGE), Le Croisic, France",
       "year": 2022
+    },
+    {
+      "type": "thesis",
+      "title": "Study of Dynamics and Stability in Low Inertia Power Systems with High Penetration of Inverter-Based Resources",
+      "authors": "Fadi Kelada",
+      "venue": "Ph.D. thesis, Université Grenoble Alpes",
+      "year": 2024,
+      "link": "https://theses.fr/2024GRALT065"
+    },
+    {
+      "type": "software",
+      "title": "G2ELin: An Open-Access Power System Linearization and EMT Simulation Tool",
+      "authors": "Fadi Kelada",
+      "venue": "github.com/FKELADA/G2ELin",
+      "year": 2023,
+      "link": "https://github.com/FKELADA/G2ELin"
     }
   ],
   "contact": {
-    "location": "Grenoble, France",
-    "orcid": "0000-0001-5569-6322",
+    "email": "keladafadi@hotmail.com",
+    "location": "Puteaux, France",
     "linkedin": "fadi-kelada",
-    "github": "FKELADA"
+    "github": "FKELADA",
+    "orcid": "0000-0001-5569-6322",
+    "scholar": "nHG6BO8AAAAJ"
   }
 }

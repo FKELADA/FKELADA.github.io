@@ -75,6 +75,7 @@ const current = (p: string) => (p === "/" ? path === "/" : path.startsWith(p));
         <span class="links">
           {cv.contact.github && <a href={`https://github.com/${cv.contact.github}`}>GitHub</a>}
           {cv.contact.linkedin && <a href={`https://www.linkedin.com/in/${cv.contact.linkedin}/`}>LinkedIn</a>}
+          {(cv.contact as Record<string, string>).scholar && <a href={`https://scholar.google.com/citations?user=${(cv.contact as Record<string, string>).scholar}`}>Scholar</a>}
           {cv.contact.orcid && <a href={`https://orcid.org/${cv.contact.orcid}`}>ORCID</a>}
         </span>
       </div>
