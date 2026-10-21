@@ -3,9 +3,10 @@ import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import PostList from "../components/PostList.astro";
+import PublicationList, { type Pub } from "../components/PublicationList.astro";
 import portrait from "../assets/portrait.jpg";
 import { cvFor } from "../cv";
-import projects from "../data/projects.json";
+import { sortedProjects } from "../projects";
 import { t, href, type Lang } from "../i18n";
 import { postsIn } from "../posts";
 
@@ -14,6 +15,7 @@ interface Props {
 }
 const { lang } = Astro.props;
 const cv = cvFor(lang);
+const scholar = (cv.contact as Record<string, string | undefined>).scholar;
 const posts = (await postsIn(lang)).slice(0, 3);
 ---
 
@@ -38,8 +40,16 @@ const posts = (await postsIn(lang)).slice(0, 3);
       <a href={href(lang, "/projects/")}>{t[lang].allProjects} →</a>
     </div>
     <div class="cards">
-      {projects.slice(0, 3).map((p) => <ProjectCard lang={lang} project={p} />)}
+      {sortedProjects.slice(0, 3).map((p) => <ProjectCard lang={lang} project={p} />)}
     </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>{t[lang].publications}</h2>
+      {scholar && <a href={`https://scholar.google.com/citations?user=${scholar}`}>Google Scholar →</a>}
+    </div>
+    <PublicationList lang={lang} pubs={cv.publications as Pub[]} types={["article", "conference"]} />
   </section>
 
   <section class="section">

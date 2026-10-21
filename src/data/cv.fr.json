@@ -108,7 +108,7 @@
       "label": "Heures d'enseignement"
     },
     {
-      "value": "2",
+      "value": "4",
       "label": "Stagiaires encadrés"
     }
   ],
@@ -173,20 +173,20 @@
   ],
   "languages": [
     {
-      "name": "Arabe",
-      "level": 5
+      "name": "Français",
+      "level": 4.5
     },
     {
       "name": "Anglais",
       "level": 4.5
     },
     {
-      "name": "Français",
-      "level": 4.5
-    },
-    {
       "name": "Allemand",
       "level": 1
+    },
+    {
+      "name": "Arabe",
+      "level": 5
     }
   ],
   "publications": [

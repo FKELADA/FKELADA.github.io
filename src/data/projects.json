@@ -1,5 +1,41 @@
 [
   {
+    "id": "fidofinance",
+    "name": "FidoFinance",
+    "summary": {
+      "en": "A private budget and wealth dashboard: bank statements and payslips from several banks are parsed automatically into spending by category, savings and net worth over time. Runs on my own computer; no financial data leaves it.",
+      "fr": "Un tableau de bord privé du budget et du patrimoine : relevés bancaires et bulletins de paie de plusieurs banques analysés automatiquement en dépenses par catégorie, épargne et patrimoine dans le temps. Tourne sur mon ordinateur ; aucune donnée financière n'en sort."
+    },
+    "tags": [
+      "Python",
+      "Flask",
+      "ECharts"
+    ],
+    "category": "personal",
+    "icon": "/icons/fidofinance.png",
+    "repo": null,
+    "url": null,
+    "docs": null
+  },
+  {
+    "id": "fidoplan",
+    "name": "FidoPlan",
+    "summary": {
+      "en": "A personal planner that brings work meetings, weekly routines, work-from-home days and objectives into one calendar: Outlook, Google and iCloud feeds, routines that fill the week around meetings, and objectives that tick themselves off. Installable, works offline.",
+      "fr": "Un agenda personnel qui réunit réunions, routines hebdomadaires, jours de télétravail et objectifs dans un seul calendrier : flux Outlook, Google et iCloud, routines qui remplissent la semaine autour des réunions, objectifs qui avancent tout seuls. Installable, fonctionne hors ligne."
+    },
+    "tags": [
+      "React",
+      "TypeScript",
+      "PWA"
+    ],
+    "category": "personal",
+    "icon": "/icons/fidoplan.png",
+    "repo": null,
+    "url": null,
+    "docs": null
+  },
+  {
     "id": "fidopray",
     "name": "FidoPray",
     "summary": {
@@ -11,6 +47,8 @@
       "TypeScript",
       "PWA"
     ],
+    "category": "personal",
+    "icon": "/icons/fidopray.svg",
     "repo": null,
     "url": null,
     "docs": null
@@ -27,6 +65,8 @@
       "TypeScript",
       "Power systems"
     ],
+    "category": "research",
+    "icon": "/icons/omega-lab.svg",
     "repo": "https://github.com/FKELADA/Omega-Lab",
     "url": "https://fkelada.github.io/Omega-Lab/",
     "docs": null
@@ -43,6 +83,8 @@
       "MATLAB",
       "Research"
     ],
+    "category": "research",
+    "icon": null,
     "repo": "https://github.com/FKELADA/G2ELin",
     "url": null,
     "docs": "https://fkelada-g2elin-docs.static.hf.space"
@@ -58,6 +100,8 @@
       "Next.js",
       "Supabase"
     ],
+    "category": "community",
+    "icon": "/icons/khedma.ico",
     "repo": null,
     "url": null,
     "docs": null

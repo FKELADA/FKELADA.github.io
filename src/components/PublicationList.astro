@@ -1,0 +1,32 @@
+---
+import { t, type Lang } from "../i18n";
+
+export type Pub = { type: string; title: string; authors: string; venue: string; year: number; doi?: string; link?: string; status?: string };
+
+interface Props {
+  lang: Lang;
+  pubs: Pub[];
+  /** Publication types to show, in this order (default: all). */
+  types?: string[];
+}
+const { lang, pubs, types = ["article", "conference", "thesis", "software"] } = Astro.props;
+const L = t[lang];
+const titles: Record<string, string> = { article: L.journal, conference: L.conference, thesis: L.thesis, software: L.software };
+const groups = types.map((type) => [titles[type], pubs.filter((p) => p.type === type)] as const).filter(([, list]) => list.length > 0);
+---
+
+{groups.map(([title, list]) => (
+  <>
+    <h3 style="font-size: 15px; margin: 0 0 8px">{title}</h3>
+    <ol class="pubs">
+      {list.map((p) => (
+        <li>
+          {p.authors}. “{p.title}”. <em>{p.venue}</em>, {p.year}
+          {p.status && <span class="status"> ({p.status})</span>}.
+          {p.doi && <> <a href={`https://doi.org/${p.doi}`}>doi:{p.doi}</a></>}
+          {!p.doi && p.link && <> <a href={p.link}>{L.readMore} →</a></>}
+        </li>
+      ))}
+    </ol>
+  </>
+))}

@@ -1,15 +1,19 @@
 ---
 import { t, type Lang } from "../i18n";
+import type { Project } from "../projects";
 
 interface Props {
   lang: Lang;
-  project: { name: string; summary: { en: string; fr: string }; tags: string[]; repo: string | null; url: string | null; docs: string | null };
+  project: Project;
 }
 const { lang, project: p } = Astro.props;
 ---
 
 <article class="card">
-  <h3>{p.name}</h3>
+  <div class="card-head">
+    {p.icon ? <img class="project-icon" src={p.icon} alt="" width="40" height="40" loading="lazy" /> : <span class="project-icon placeholder" aria-hidden="true">{p.name.charAt(0)}</span>}
+    <h3>{p.name}</h3>
+  </div>
   <p>{p.summary[lang]}</p>
   <ul class="tags">{p.tags.map((tag) => <li>{tag}</li>)}</ul>
   <div class="links">

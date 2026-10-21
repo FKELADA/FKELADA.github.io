@@ -100,6 +100,12 @@ nav .lang { border: 1px solid var(--border); margin-left: 6px; }
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
 .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; display: flex; flex-direction: column; gap: 12px; }
 .card p { margin: 0; color: var(--muted); font-size: 16px; }
+.card-head { display: flex; align-items: center; gap: 12px; }
+.card-head h3 { margin: 0; }
+.project-icon { width: 40px; height: 40px; border-radius: 10px; flex: none; object-fit: contain; }
+.project-icon.placeholder { display: grid; place-items: center; background: var(--surface-2); color: var(--muted); font-weight: 650; font-size: 18px; }
+.project-group + .project-group { margin-top: 40px; }
+.project-group h2 { font-size: 20px; margin: 0 0 16px; }
 .tags { display: flex; gap: 6px; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; }
 .tags li { font-size: 12.5px; padding: 2px 9px; border-radius: 99px; background: var(--surface-2); color: var(--muted); }
 .card .links { display: flex; gap: 16px; margin-top: auto; font-size: 15px; font-weight: 550; }

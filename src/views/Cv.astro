@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
+import PublicationList, { type Pub } from "../components/PublicationList.astro";
 import portrait from "../assets/portrait.jpg";
 import { cvFor } from "../cv";
 import { t, formatMonth, type Lang } from "../i18n";
@@ -13,14 +14,6 @@ const cv = cvFor(lang);
 const L = t[lang];
 const span = (e: { start: string | number; end: string | number }) => `${formatMonth(e.start, lang)} – ${formatMonth(e.end, lang)}`;
 type Entry = { title: string; organisation: string; start?: string | number; end?: string | number; location?: string; details?: string; link?: string };
-type Pub = { type: string; title: string; authors: string; venue: string; year: number; doi?: string; link?: string; status?: string };
-const pubs = cv.publications as Pub[];
-const pubGroups: [string, Pub[]][] = [
-  [L.journal, pubs.filter((p) => p.type === "article")],
-  [L.conference, pubs.filter((p) => p.type === "conference")],
-  [L.thesis, pubs.filter((p) => p.type === "thesis")],
-  [L.software, pubs.filter((p) => p.type === "software")],
-].filter(([, list]) => (list as Pub[]).length > 0) as [string, Pub[]][];
 const when = (e: Entry) => [e.start !== undefined && e.end !== undefined ? span(e as { start: string; end: string }) : null, e.location].filter(Boolean).join(" · ");
 const contact = cv.contact as Record<string, string | undefined>;
 ---
@@ -83,21 +76,7 @@ const contact = cv.contact as Record<string, string | undefined>;
 
       <section class="cv-section">
         <h2>{L.publications}</h2>
-        {pubGroups.map(([title, list]) => (
-          <>
-            <h3 style="font-size: 15px; margin: 0 0 8px">{title}</h3>
-            <ol class="pubs">
-              {list.map((p) => (
-                <li>
-                  {p.authors}. “{p.title}”. <em>{p.venue}</em>, {p.year}
-                  {p.status && <span class="status"> ({p.status})</span>}.
-                  {p.doi && <> <a href={`https://doi.org/${p.doi}`}>doi:{p.doi}</a></>}
-                  {!p.doi && p.link && <> <a href={p.link}>{L.readMore} →</a></>}
-                </li>
-              ))}
-            </ol>
-          </>
-        ))}
+        <PublicationList lang={lang} pubs={cv.publications as Pub[]} />
       </section>
     </div>
 

@@ -43,6 +43,7 @@ export const t = {
     notFound: "This page doesn't exist.",
     cvNote: "",
     themes: { auto: "◐ Auto", light: "☀ Light", dark: "☾ Dark", title: "Theme: automatic, light or dark" },
+    categories: { research: "Research and teaching", community: "Community", personal: "Personal projects" },
   },
   fr: {
     home: "Accueil",
@@ -86,6 +87,7 @@ export const t = {
     notFound: "Cette page n'existe pas.",
     cvNote: "",
     themes: { auto: "◐ Auto", light: "☀ Clair", dark: "☾ Sombre", title: "Thème : automatique, clair ou sombre" },
+    categories: { research: "Recherche et enseignement", community: "Communauté", personal: "Projets personnels" },
   },
 } as const;
 

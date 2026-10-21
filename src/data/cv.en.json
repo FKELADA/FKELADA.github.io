@@ -108,7 +108,7 @@
       "label": "Teaching hours"
     },
     {
-      "value": "2",
+      "value": "4",
       "label": "Interns supervised"
     }
   ],
@@ -173,20 +173,20 @@
   ],
   "languages": [
     {
-      "name": "Arabic",
-      "level": 5
+      "name": "French",
+      "level": 4.5
     },
     {
       "name": "English",
       "level": 4.5
     },
     {
-      "name": "French",
-      "level": 4.5
-    },
-    {
       "name": "German",
       "level": 1
+    },
+    {
+      "name": "Arabic",
+      "level": 5
     }
   ],
   "publications": [
